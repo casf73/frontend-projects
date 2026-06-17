@@ -17,6 +17,7 @@ body {
 .page-bg {
     position: fixed;
     inset: 0;
+    /* 用来设置全屏背景，就是top，right这些的缩写*/
 
     background-image: url("../assets/images/background.jpg");
     background-size: cover;
@@ -35,7 +36,7 @@ body {
     position: fixed;
     left: 50%;
     top: 50%;
-    z-index: 10;
+    z-index: 999;
 
     transform: translate(-50%, -50%);
     transform-origin: center center;
