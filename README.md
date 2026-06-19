@@ -64,7 +64,11 @@ project
 
 ## 项目预览
 
+初始状态：
+<img src="/TextRevealAnimation/assets/images/初始状态.png">
 
+最终状态:
+<img src="/TextRevealAnimation/assets/images/最终状态.png">
 ---
 
 ### 2. Coming Soon...
