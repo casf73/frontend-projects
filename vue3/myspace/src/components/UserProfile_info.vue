@@ -1,0 +1,53 @@
+<template>
+    <div class="row">
+        <div class="col-3">
+            <img :src="head">
+        </div>
+        <div class="col-9">
+            <div class="username">{{ user.Username }}</div>
+            <div class="fan">粉丝数:{{ user.FollowerCount }}</div>
+            <button type="button" class="btn btn-secondary" @click="sendmessage">{{ user.is_followed ? "取消关注" : "关注" }}</button>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import head from '@/assets/icon.jpg'
+
+defineProps({
+  user: {
+    type: Object,
+    required: true,
+  },
+});
+
+const emit = defineEmits(['follow']);
+
+let sendmessage = () =>{
+    emit('follow');
+}
+</script>
+
+<style scoped>
+img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.username{
+    font-weight: bold;
+}
+
+.fan{
+    font-size:12px;
+    color:grey;
+}
+
+button{
+    padding:2px,4px;
+    font-size:12px;
+}
+</style>
