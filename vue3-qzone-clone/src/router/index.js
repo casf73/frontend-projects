@@ -5,43 +5,63 @@ import UserProfile from '@/views/UserProfile.vue'
 import LoginView from '@/views/LoginView.vue'
 import RegisterView from '@/views/RegisterView.vue'
 import NotFound from '@/views/NotFound.vue'
+import { useUserStore } from '@/store/user'
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
   },
   {
-    path: '/UserList',
+    path: '/UserList/',
     name: 'UserList',
+    meta: { requiresAuth: true },
     component: UserList
   },
   {
-    path: '/UserProfile',
+    path: '/UserProfile/',
     name: 'UserProfile',
+    meta: { requiresAuth: true },
     component: UserProfile
   },
   {
-    path: '/LoginView',
+    path: '/LoginView/',
     name: 'LoginView',
     component: LoginView
   },
   {
-    path: '/RegisterView',
+    path: '/RegisterView/',
     name: 'RegisterView',
     component: RegisterView
   },
   {
-    path: '/404',
+    path: '/404/',
     name: '404',
     component: NotFound
   },
+  {
+    path:'/:catchAll(.*)',
+    redirect:'/404/'
+  }
 ]
 
 const router = createRouter({
   history: createWebHistory(),
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  const userStore = useUserStore()
+
+  userStore.loadUserFromLocalStorage()
+
+  if (to.meta.requiresAuth && !userStore.isLogin) {
+    next('/')
+  } else {
+    next()
+  }
+})
+
 
 export default router

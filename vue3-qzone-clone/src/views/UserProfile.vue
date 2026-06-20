@@ -18,19 +18,19 @@ import UserProfile_info from '@/components/UserProfile_info.vue';
 import UserProfile_posts from '@/components/UserProfile_posts.vue';
 import UserProfile_write from '@/components/UserProfile_write.vue';
 import { reactive,watch } from 'vue';
+import { useUserStore } from '@/store/user';
 
-const user = reactive({
-  id:1,
-  Username:"Liu Yun Yan",
-  FollowerCount:999999999,
-  is_followed:false,
-})
+const UserStore = useUserStore();
+UserStore.loadUserFromLocalStorage()
 
-const savedPost = localStorage.getItem('post');
+const user = UserStore.user
+
+
+const SavedPost = localStorage.getItem('post');
 
 const post = reactive(
-   savedPost
-    ? JSON.parse(savedPost)
+   SavedPost
+    ? JSON.parse(SavedPost)
     : {
         count: 0,
         posts: []
@@ -51,13 +51,14 @@ let handleFollow = () =>{
   }
   else user.FollowerCount++
   user.is_followed = !user.is_followed
+  UserStore.saveUserToLocalStorage()
 }
 
 let edit_text = (content) =>{
   post.count++;
   post.posts.push({
     id:post.count,
-    Username:user.Username,
+    Username: user.last_name + user.first_name,
     content:content
   })
 }

@@ -1,10 +1,10 @@
 <template>
     <div class="row">
         <div class="col-3">
-            <img :src="head">
+            <img :src="user.head">
         </div>
         <div class="col-9">
-            <div class="username">{{ user.Username }}</div>
+            <div class="username">{{ user.last_name }}{{ user.first_name }}</div>
             <div class="fan">粉丝数:{{ user.FollowerCount }}</div>
             <button type="button" class="btn btn-secondary" @click="sendmessage">{{ user.is_followed ? "取消关注" : "关注" }}</button>
         </div>
@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import head from '@/assets/icon.jpg'
+
 
 defineProps({
   user: {
