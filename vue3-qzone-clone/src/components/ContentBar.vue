@@ -3,7 +3,7 @@
     <div class="container">
       <div class="card">
         <div class="card-body text-start">
-            <slot></slot>
+            <slot></slot> <!--在复用的时候，slot可以实现具体内容的输入-->
         </div>
       </div>
     </div>

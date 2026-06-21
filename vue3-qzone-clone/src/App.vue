@@ -1,8 +1,7 @@
 <template>
   <NavBar/>
-  <router-view/>
+  <router-view/> <!--app页面是用来存放每个页面的公共部分，比如导航页-->>
 </template>
-
 <script setup>
 import NavBar from './components/NavBar.vue';
 </script>

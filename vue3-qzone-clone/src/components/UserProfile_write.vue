@@ -13,7 +13,7 @@ const content = ref('');
 const emit = defineEmits('request');
 
 let send = () =>{
-    if(content.value.trim() === ''){
+    if(content.value.trim() === ''){ //当内容被编辑完成，点击按钮后，内容会被传到父组件中
         alert('输入内容不可以为空');
         return;
     }

@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col-3">
-            <img :src="user.head">
+            <img :src="user.head"> <!--使用pinia存储的数据，实时上传数据-->
         </div>
         <div class="col-9">
             <div class="username">{{ user.last_name }}{{ user.first_name }}</div>
@@ -14,21 +14,21 @@
 <script setup>
 
 
-defineProps({
+defineProps({ //用来接受父组件传来的数据
   user: {
     type: Object,
     required: true,
   },
 });
 
-const emit = defineEmits(['follow']);
+const emit = defineEmits(['follow']); //当关注按钮被触发，向父组件发出信息提示
 
 let sendmessage = () =>{
     emit('follow');
 }
 </script>
 
-<style scoped>
+<style scoped> /* scoped是用来让css只作用于这一个文件内容*/ 
 img{
     width:100%;
     height:100%;

@@ -20,8 +20,8 @@ import { ref } from 'vue';
 
 const userlist = ref([]);
 
-async function getuserlist() {
-  try{
+async function getuserlist() { //这里使用了acwing的api接口，用来实现好友列表的实现，因为本人后端技术的缺失，暂无法自己实现
+  try{ //同样这里使用了async，await，这类异步关键词，主要作用就是各种请求都不是一瞬间发生的，我们需要等请求完成后，才可以进行下一步，类型为promsing
     const res = await axios.get('https://app165.acapp.acwing.com.cn/myspace/userlist/');
     userlist.value = res.data;
   }

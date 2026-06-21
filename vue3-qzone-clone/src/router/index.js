@@ -41,7 +41,7 @@ const routes = [
     component: NotFound
   },
   {
-    path:'/:catchAll(.*)',
+    path:'/:catchAll(.*)', //重点是:catcgAll可以去匹配
     redirect:'/404/'
   }
 ]

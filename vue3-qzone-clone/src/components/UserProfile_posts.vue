@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-defineProps({
+defineProps({ //接受父组件传来的帖子内容
   post:{
     type:Object,
     required:true,

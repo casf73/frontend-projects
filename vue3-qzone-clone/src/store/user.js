@@ -1,7 +1,7 @@
 import { defineStore } from "pinia"
 
 export const useUserStore = defineStore('user',{
-  state:() =>({
+  state:() =>({ //用来存用户的各种信息，需要在各个页面频繁使用的信息
     user:{
       id:null,
       last_name:'',
@@ -11,11 +11,11 @@ export const useUserStore = defineStore('user',{
       is_followed:false,
     }
   }),
-  getters:{
+  getters:{ //用来内置一些计算，方便使用
     isLogin:(state) => state.user.id !==null,
     fullName:(state) => state.user.last_name + state.user.first_name
   },
-  actions:{
+  actions:{ //用来暴露在外的接口，可以通过实例来使用
     setUser(userInfo) {
       this.user.id = userInfo.id
       this.user.last_name = userInfo.last_name

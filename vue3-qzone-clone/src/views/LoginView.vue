@@ -36,12 +36,11 @@ function login() {
   }
 
   const user = JSON.parse(savedUser).find(user => user.account === account.value.trim());
-
   if(!user){
     error_message.value = '用户名不存在';
     return;
   }
-
+  //判断用户输入的账号密码是否正确，完成登陆验证
   if (
     account.value.trim() === user.account &&
     password.value === user.password
@@ -49,6 +48,7 @@ function login() {
     const userStore = useUserStore();
     userStore.setUser(user)
     userStore.saveUserToLocalStorage()
+    //登录成功后把用户的信息上传到pinia中，方便各个页面使用
     alert('登录成功')
     router.push('/')
   } else {

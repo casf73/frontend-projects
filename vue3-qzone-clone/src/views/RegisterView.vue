@@ -40,7 +40,7 @@ const last_name = ref('');
 const head=ref('');
 
 
-function handleHeadUpload(event) {
+function handleHeadUpload(event) { //此方法主要是实现了头像的保存，把图片文件保存为字符串base64
   const file = event.target.files[0]
   if (!file) return
 
@@ -51,7 +51,7 @@ function handleHeadUpload(event) {
 
   const reader = new FileReader()
 
-  reader.onload = () => {
+  reader.onload = () => { //因为图片的读取，包括各种数据的传输都是需要时间的，要采用异步方法，需要先等到load完毕
     head.value = reader.result
   }
 
@@ -62,7 +62,7 @@ function handleHeadUpload(event) {
   reader.readAsDataURL(file)
 }
 
-function register() {
+function register() { //主要就是注册完把数据保存到LocalStorage，重点就是LocalStorage要存JSON字符串类型，所以上传前要先用stringify（）转化，如果取出来用要使用parse（）转化为对象
   const users = JSON.parse(localStorage.getItem('users')) || [];
   const exists = users.find(user => user.account === account.value.trim())
 

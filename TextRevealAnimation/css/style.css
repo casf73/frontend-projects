@@ -23,7 +23,7 @@ body {
     background-size: cover;
     background-position: center;
 
-    opacity: 0;
+    opacity: 0; /*先隐藏背景图片，后续用动画把透明度调到1才显现*/
 
     transition: opacity 2s ease;
 }
@@ -39,7 +39,7 @@ body {
     z-index: 999;
 
     transform: translate(-50%, -50%);
-    transform-origin: center center;
+    transform-origin: center center; /*控制移动的点，所有移动变化都由中心点移动*/
 
     font-size: 18vw;
     font-weight: 900;
@@ -48,8 +48,9 @@ body {
     background-size: cover;
     background-position: center;
 
-    color: transparent;
-    -webkit-background-clip: text;
+    color: transparent;/*这两句话的作用是把文字调成透明，
+    然后让图片内嵌至文字，以达到只有文字内部显示图片的效果
+    */
     background-clip: text;
 
     transition:

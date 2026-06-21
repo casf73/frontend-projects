@@ -6,7 +6,8 @@
           <UserProfile_write @request="edit_text"/>
         </div>
         <div class="col-9 border-left">
-          <UserProfile_posts :post="post"/>
+          <UserProfile_posts :post="post"/> <!--其中：user='user'是用来向子组件传递信息的，
+          @follow='handleFollow'是用来接受子组件发送的行为，然后执行函数-->
         </div>
     </div>
   </ContentBar>
@@ -45,7 +46,7 @@ watch(
   { deep: true }
 );
 
-let handleFollow = () =>{
+let handleFollow = () =>{ //通过子组件传递的关注信息，来更改关注数与关注状态
   if(user.is_followed){
     user.FollowerCount--
   }
@@ -54,7 +55,7 @@ let handleFollow = () =>{
   UserStore.saveUserToLocalStorage()
 }
 
-let edit_text = (content) =>{
+let edit_text = (content) =>{ //把子组件上传的帖子内容保存下来，并且通过props传递给posts区
   post.count++;
   post.posts.push({
     id:post.count,
