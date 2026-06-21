@@ -6,6 +6,7 @@ import com.codelyy.socialhub.service.UserService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,23 +24,23 @@ public class UserController {
     }
 
     @GetMapping
-    public List<UserResponse> findAll(@AuthenticationPrincipal Long currentUserId) {
-        return userService.findAll(currentUserId);
+    public List<UserResponse> findAll(
+            @RequestParam(defaultValue = "") String keyword,
+            @AuthenticationPrincipal Long currentUserId) {
+        return userService.findAll(keyword, currentUserId);
     }
 
     @GetMapping("/{id}")
     public UserResponse findById(
             @PathVariable Long id,
-            @AuthenticationPrincipal Long currentUserId
-    ) {
+            @AuthenticationPrincipal Long currentUserId) {
         return userService.findById(id, currentUserId);
     }
 
     @PostMapping("/{id}/follow")
     public MessageResponse follow(
             @PathVariable Long id,
-            @AuthenticationPrincipal Long currentUserId
-    ) {
+            @AuthenticationPrincipal Long currentUserId) {
         userService.follow(currentUserId, id);
         return new MessageResponse("关注成功");
     }
@@ -47,8 +48,7 @@ public class UserController {
     @DeleteMapping("/{id}/follow")
     public MessageResponse unfollow(
             @PathVariable Long id,
-            @AuthenticationPrincipal Long currentUserId
-    ) {
+            @AuthenticationPrincipal Long currentUserId) {
         userService.unfollow(currentUserId, id);
         return new MessageResponse("已取消关注");
     }

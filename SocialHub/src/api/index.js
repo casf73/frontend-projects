@@ -27,7 +27,10 @@ api.interceptors.response.use(
 
 export const registerApi = data => api.post('/auth/register', data)
 export const loginApi = data => api.post('/auth/login', data)
-export const getUsersApi = () => api.get('/users')
+export const getUsersApi = (keyword = '') =>
+  api.get('/users', {
+    params: { keyword }
+  })
 export const getUserApi = id => api.get(`/users/${id}`)
 export const getPostsApi = userId => api.get('/posts', { params: { userId } })
 export const createPostApi = content => api.post('/posts', { content })

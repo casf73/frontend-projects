@@ -28,8 +28,7 @@ public class UserService {
             UserRepository userRepository,
             FollowRepository followRepository,
             PasswordEncoder passwordEncoder,
-            JwtService jwtService
-    ) {
+            JwtService jwtService) {
         this.userRepository = userRepository;
         this.followRepository = followRepository;
         this.passwordEncoder = passwordEncoder;
@@ -67,8 +66,17 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
-    public List<UserResponse> findAll(Long currentUserId) {
-        return userRepository.findAll().stream()
+    public List<UserResponse> findAll(String keyword, Long currentUserId) {
+        List<User> users;
+
+        if (keyword == null || keyword.isBlank()) {
+            users = userRepository.findAll();
+        } else {
+            String searchPattern = "%" + keyword.trim() + "%";
+            users = userRepository.searchByFullName(searchPattern);
+        }
+
+        return users.stream()
                 .filter(user -> !user.getId().equals(currentUserId))
                 .map(user -> toResponse(user, currentUserId))
                 .toList();
@@ -116,7 +124,6 @@ public class UserService {
                 user.getLastName(),
                 user.getHead(),
                 followRepository.countByFollowingId(user.getId()),
-                followed
-        );
+                followed);
     }
 }
