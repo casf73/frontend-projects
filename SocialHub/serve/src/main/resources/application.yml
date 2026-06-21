@@ -1,0 +1,21 @@
+server:
+  address: 127.0.0.1
+  port: 8081
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/social_hub?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:123456}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:c29jaWFsaHViLWRldmVsb3BtZW50LWtleS0yMDI2LXNlY3VyZQ==}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
