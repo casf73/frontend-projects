@@ -255,8 +255,29 @@ npm run serve
 
 ## 项目预览
 
+首页：
 
+<img src="/vue3-qzone-clone/src/assets/首页.png" width="800px">
 
+注册:
+
+<img src="/vue3-qzone-clone/src/assets/注册.png" width="800px">
+
+登录:
+
+<img src="/vue3-qzone-clone/src/assets/登录.png" width="800px">
+
+好友列表:
+
+<img src="/vue3-qzone-clone/src/assets/好友列表.png" width="800px">
+
+用户动态:
+
+<img src="/vue3-qzone-clone/src/assets/用户动态.png" width="800px">
+
+编辑帖子:
+
+<img src="/vue3-qzone-clone/src/assets/编辑帖子.png" width="800px">
 ---
 
 
