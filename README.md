@@ -251,9 +251,9 @@ SocialHub
 │  │  ├─ 首页.png
 │  │  ├─ 登录.png
 │  │  ├─ 注册.png
-│  │  ├─ 好友列表.png
-│  │  ├─ 用户动态.png
-│  │  └─ 编辑帖子.png
+│  │  ├─ 好友列表与搜索功能.png
+│  │  └─ 个人主页.png
+│  │
 │  ├─ components
 │  │  ├─ ContentBar.vue
 │  │  ├─ NavBar.vue
@@ -342,13 +342,13 @@ SocialHub
 
 <img src="/vue3-qzone-clone/src/assets/登录.png" width="800px">
 
-好友列表:
+好友列表与搜索功能:
 
-<img src="/vue3-qzone-clone/src/assets/好友列表.png" width="800px">
+<img src="/vue3-qzone-clone/src/assets/好友列表与搜索功能.png" width="800px">
 
-用户动态:
+个人主页:
 
-<img src="/vue3-qzone-clone/src/assets/用户动态.png" width="800px">
+<img src="/vue3-qzone-clone/src/assets/个人主页.png" width="800px">
 
 编辑帖子:
 
