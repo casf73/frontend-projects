@@ -3,8 +3,7 @@
     <div class="card">
       <div class="card-body">
         <pre >
-          这是刘云炎vue3的qqzone项目，本项目实现了部分功能，但也同时受限于现有技术，部分功能无法实现
-          具体内容详见readme.md
+          这是刘云炎vue3的qqzone项目，详见readme文档
         </pre>
       </div>
     </div>
