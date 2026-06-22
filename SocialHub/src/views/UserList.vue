@@ -83,8 +83,7 @@ async function getuserlist() {
     const response = await getUsersApi(searchName)
     userlist.value = response.data
   } catch (error) {
-    errorMessage.value =
-      error.response?.data?.message || '搜索用户失败'
+    errorMessage.value = error.response?.data?.message || '搜索用户失败'
   } finally {
     loading.value = false
   }

@@ -40,6 +40,7 @@ async function login() {
 }
 
   if (submitting.value) return
+
   submitting.value = true
 
   try {
@@ -51,8 +52,7 @@ async function login() {
     userStore.setLogin(response.data.token, response.data.user)
     router.push(route.query.redirect || '/')
   } catch (error) {
-    error_message.value =
-      error.response?.data?.message || '用户名或密码错误'
+    error_message.value = error.response?.data?.message || '用户名或密码错误'
   }
   finally {
   submitting.value = false

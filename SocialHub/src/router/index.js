@@ -57,7 +57,7 @@ router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth && !userStore.isLogin) {
     next({
       name: 'LoginView',
-      query: { redirect: to.fullPath }
+      query: { redirect: to.fullPath } //记录下要跳转的页面，登录成功后自动跳转
     })
   } else {
     next()

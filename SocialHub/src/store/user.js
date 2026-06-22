@@ -11,10 +11,10 @@ const emptyUser = () => ({
 
 function loadCachedUser() {
   try {
-    const value = localStorage.getItem('currentUser')
+    const value = localStorage.getItem('currentUser') 
 
     if (!value) {
-      localStorage.removeItem('token')
+      localStorage.removeItem('token') //加入双重验证，即使登录信息不存在，token也有可能还存在
       return emptyUser()
     }
 
@@ -44,16 +44,14 @@ export const useUserStore = defineStore('user',{
       this.user = user
       localStorage.setItem('token', token)
       const cachedUser = {
-  id: user.id,
-  account: user.account,
-  firstName: user.firstName,
-  lastName: user.lastName,
-  followerCount: user.followerCount
-}
-
-localStorage.setItem('currentUser', JSON.stringify(cachedUser))
+      id: user.id,
+      account: user.account,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      followerCount: user.followerCount
+    }
+      localStorage.setItem('currentUser', JSON.stringify(cachedUser))
     },
-
     logout() {
       this.token = ''
       this.user = emptyUser()

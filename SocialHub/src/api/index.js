@@ -1,10 +1,11 @@
 import axios from 'axios'
 import { useUserStore } from '@/store/user'
 
-const api = axios.create({ baseURL: '/api', timeout: 10000 })
+const api = axios.create({ baseURL: '/api', timeout: 10000 }) //设置baseURL，方便后续编写
 
 api.interceptors.request.use(config => {
-  const token = localStorage.getItem('token')
+  const userStore = useUserStore(); //判断用户是否还在登陆状态
+  const token = userStore.token
   if (token) config.headers.Authorization = `Bearer ${token}`
   return config
 })
