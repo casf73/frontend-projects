@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        刘云炎的拳皇demo
+    </title>
+    <link href="/static/css/base.css" rel="stylesheet">
+    <script src="https://cdn.acwing.com/static/jquery/js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div id="gamebox">
+        <div class="gamebox-head">
+            <div class="gamebox-head-hp-0">
+                <div class="gamebox-head-hp-0-detail"></div>
+            </div>
+            <div class="gamebox-head-timer">
+                60
+            </div>
+            <div class="gamebox-head-hp-1">
+                <div class="gamebox-head-hp-1-detail"></div>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import {KOF} from '/static/js/base.js'
+        let kof = new KOF('gamebox');
+    </script>
+</body>
+</html>
