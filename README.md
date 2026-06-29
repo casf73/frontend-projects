@@ -252,6 +252,7 @@ SocialHub
 │  │  ├─ 登录.png
 │  │  ├─ 注册.png
 │  │  ├─ 好友列表与搜索功能.png
+|  |  ├─ 访问个人主页及关注功能.png
 │  │  └─ 个人主页.png
 │  │
 │  ├─ components
@@ -332,27 +333,27 @@ SocialHub
 
 首页：
 
-<img src="/vue3-qzone-clone/src/assets/首页.png" width="800px">
+<img src="/SocialHub/src/assets/首页.png" width="800px">
 
 注册:
 
-<img src="/vue3-qzone-clone/src/assets/注册.png" width="800px">
+<img src="/SocialHub/src/assets/注册.png" width="800px">
 
 登录:
 
-<img src="/vue3-qzone-clone/src/assets/登录.png" width="800px">
+<img src="/SocialHub/src/assets/登录.png" width="800px">
 
 好友列表与搜索功能:
 
-<img src="/vue3-qzone-clone/src/assets/好友列表与搜索功能.png" width="800px">
+<img src="/SocialHub/src/assets/好友列表与搜索功能.png" width="800px">
 
 个人主页:
 
-<img src="/vue3-qzone-clone/src/assets/个人主页.png" width="800px">
+<img src="/SocialHub/src/assets/个人主页.png" width="800px">
 
-编辑帖子:
+访问个人主页及关注功能:
 
-<img src="/vue3-qzone-clone/src/assets/编辑帖子.png" width="800px">
+<img src="/SocialHub/src/assets/访问个人主页及关注功能.png" width="800px">
 ---
 
 
